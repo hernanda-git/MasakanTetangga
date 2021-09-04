@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MasakanTetangga.Converters"
              x:Class="MasakanTetangga.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -13,6 +14,11 @@
             <Color x:Key="White70">#70FFFFFF</Color>
             <Color x:Key="TextGrey">#696969</Color>
             <Color x:Key="Green">#0B9919</Color>
+
+            <local:ImageSourceConverter x:Key="ImageSourceConverter" />
         </ResourceDictionary>
+
+            <ResourceDictionary>
+            </ResourceDictionary>
     </Application.Resources>
 </Application>

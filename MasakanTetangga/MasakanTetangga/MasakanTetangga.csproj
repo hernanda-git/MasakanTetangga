@@ -61,10 +61,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Models\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Views\Login.xaml.cs">
 	    <DependentUpon>Login.xaml</DependentUpon>
 	  </Compile>

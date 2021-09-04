@@ -5,7 +5,7 @@
                  x:Class="MasakanTetangga.Views.HomePage"
                  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
                  xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
-                 xmlns:local="clr-namespace:MasakanTetangga"
+                 xmlns:local="clr-namespace:MasakanTetangga" xmlns:converter="clr-namespace:MasakanTetangga.Converters"
                  Shell.NavBarIsVisible="False"
                  BackgroundColor="{StaticResource Primary}">
     <ContentPage.Content>
@@ -108,318 +108,48 @@
                 <!--/CATEGORIES-->
 
                 <!--CONTENT-->
-                <ScrollView VerticalScrollBarVisibility="Never" Margin="0,0,0,-20">
-                    <StackLayout Spacing="-6" Padding="0,10,0,0">
-                        <material:MaterialCard HeightRequest="100" CornerRadius="20" Margin="0,0,0,0" BackgroundColor="{StaticResource White70}">
-                            <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
-                                <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
-                                    <Grid>
-                                        <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{local:ImageResource MasakanTetangga.Resources.Images.nasi_ayam_sample.jpg}"/>
-                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
-                                            <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.Avatar.alfred_molina.png}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
-                                                </Image.Clip>
-                                            </Image>
+                <CollectionView VerticalScrollBarVisibility="Never" Margin="0,0,0,-20" ItemsSource="{Binding ObservableFood}" SelectedItem="{Binding FoodEntity}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="-6" Padding="0,10,0,0">
+                                <material:MaterialCard HeightRequest="100" CornerRadius="20" Margin="0,0,0,0" BackgroundColor="{StaticResource White70}">
+                                    <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
+                                        <!--IMAGE-->
+                                        <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
+                                            <Grid>
+                                                <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                                <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
+                                                    <Image Source="{Binding UserAvatarURL, Converter={StaticResource ImageSourceConverter}}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
+                                                        <Image.Clip>
+                                                            <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
+                                                        </Image.Clip>
+                                                    </Image>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+
+                                        <!--INFORMATION-->
+                                        <StackLayout Grid.Column="1" Spacing="0">
+                                            <Label Text="{Binding Title}" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
+                                            <Label Text="{Binding CreatedBy}" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
+                                            <Label Text="{Binding Price, StringFormat='Rp. {0:N0}'}" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
+                                                <material:MaterialButton ButtonType="Elevated" Elevation="2, 4" HorizontalOptions="End" VerticalOptions="Start"
+                                                                         FontSize="Small" CornerRadius="20" FontFamily="RobotoBold" Text="Chat" BorderColor="White"
+                                                                         BorderWidth="2" Command="{Binding LoginCommand}" BackgroundColor="{StaticResource Accent}"/>
+                                                <material:MaterialButton ButtonType="Elevated" Elevation="2, 4" HorizontalOptions="End" VerticalOptions="Start" 
+                                                                         FontSize="Small" CornerRadius="20" BorderColor="White" BorderWidth="2" FontFamily="RobotoBold"
+                                                                         Text="Tambah" Command="{Binding AddRequestComand}" BackgroundColor="{StaticResource Accent}"/>
+                                            </StackLayout>
+
                                         </StackLayout>
                                     </Grid>
-                                </Frame>
-
-                                <StackLayout Grid.Column="1" Spacing="0">
-                                    <Label Text="Nasi Uduk + Ayam Goreng" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-                                    <Label Text="Alfred Molina" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <Label Text="Rp. 25.000" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             FontFamily="RobotoBold"
-                                             Text="Chat"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             Command="{Binding LoginCommand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             FontFamily="RobotoBold"
-                                             Text="Tambah"
-                                             Command="{Binding AddRequestComand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                    </StackLayout>
-
-                                </StackLayout>
-                            </Grid>
-                        </material:MaterialCard>
-                        <material:MaterialCard HeightRequest="100" CornerRadius="20" BackgroundColor="{StaticResource White70}" Margin="0,20,0,0">
-                            <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
-                                <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
-                                    <Grid>
-                                        <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{local:ImageResource MasakanTetangga.Resources.Images.ayam_bakar_tanpa_nasi.jpg}"/>
-                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
-                                            <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.Avatar.zendaya.jpg}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
-                                                </Image.Clip>
-                                            </Image>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <StackLayout Grid.Column="1" Spacing="0">
-                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-                                    <Label Text="Zendaya" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <Label Text="Rp. 35.000" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             FontFamily="RobotoBold"
-                                             Text="Chat"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             Command="{Binding LoginCommand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             FontFamily="RobotoBold"
-                                             Text="Tambah"
-                                             Command="{Binding AddRequestComand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                    </StackLayout>
-
-                                </StackLayout>
-                            </Grid>
-                        </material:MaterialCard>
-                        <material:MaterialCard HeightRequest="100" CornerRadius="20" BackgroundColor="{StaticResource White70}" Margin="0,20,0,0">
-                            <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
-                                <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
-                                    <Grid>
-                                        <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{local:ImageResource MasakanTetangga.Resources.Images.ayam_goreng_kentang.jpg}"/>
-                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
-                                            <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.Avatar.alfred_molina.png}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
-                                                </Image.Clip>
-                                            </Image>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <StackLayout Grid.Column="1" Spacing="0">
-                                    <Label Text="Ayam Goreng + Kentang" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-                                    <Label Text="Alfred Molina" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <Label Text="Rp. 19.000" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             FontFamily="RobotoBold"
-                                             Text="Chat"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             Command="{Binding LoginCommand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             FontFamily="RobotoBold"
-                                             Text="Tambah"
-                                             Command="{Binding AddRequestComand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                    </StackLayout>
-
-                                </StackLayout>
-                            </Grid>
-                        </material:MaterialCard>
-                        <material:MaterialCard HeightRequest="100" CornerRadius="20" BackgroundColor="{StaticResource White70}" Margin="0,20,0,0">
-                            <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
-                                <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
-                                    <Grid>
-                                        <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{local:ImageResource MasakanTetangga.Resources.Images.falafel_food.jpg}"/>
-                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
-                                            <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.benedict_cumberbatch.jpg}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
-                                                </Image.Clip>
-                                            </Image>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <StackLayout Grid.Column="1" Spacing="0">
-                                    <Label Text="Klepon" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-                                    <Label Text="Benedict Cumberbatch" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <Label Text="Rp. 17.000" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             FontFamily="RobotoBold"
-                                             Text="Chat"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             Command="{Binding LoginCommand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             FontFamily="RobotoBold"
-                                             Text="Tambah"
-                                             Command="{Binding AddRequestComand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                    </StackLayout>
-
-                                </StackLayout>
-                            </Grid>
-                        </material:MaterialCard>
-                        <material:MaterialCard HeightRequest="100" CornerRadius="20" BackgroundColor="{StaticResource White70}" Margin="0,20,0,0">
-                            <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
-                                <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
-                                    <Grid>
-                                        <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{local:ImageResource MasakanTetangga.Resources.Images.misro.jpg}"/>
-                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
-                                            <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.Avatar.tom_holland.jpg}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
-                                                </Image.Clip>
-                                            </Image>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <StackLayout Grid.Column="1" Spacing="0">
-                                    <Label Text="Misro" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-                                    <Label Text="Tom Holland" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <Label Text="Rp. 5.000" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             FontFamily="RobotoBold"
-                                             Text="Chat"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             Command="{Binding LoginCommand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             FontFamily="RobotoBold"
-                                             Text="Tambah"
-                                             Command="{Binding AddRequestComand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                    </StackLayout>
-
-                                </StackLayout>
-                            </Grid>
-                        </material:MaterialCard>
-                        <material:MaterialCard HeightRequest="100" CornerRadius="20" BackgroundColor="{StaticResource White70}" Margin="0,20,0,0">
-                            <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
-                                <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">
-                                    <Grid>
-                                        <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{local:ImageResource MasakanTetangga.Resources.Images.roti_holland.jpg}"/>
-                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Padding="60,70,0,0">
-                                            <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.Avatar.tom_holland.jpg}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="33" RadiusY="33" Center="33,33"/>
-                                                </Image.Clip>
-                                            </Image>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <StackLayout Grid.Column="1" Spacing="0">
-                                    <Label Text="Holland Roti" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,-3" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-                                    <Label Text="Tom Holland" FontSize="Medium" FontFamily="RobotoBold" TextColor="{StaticResource TextGrey}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <Label Text="Rp. 23.000" FontSize="Large" FontFamily="RobotoBold" Margin="0,10,0,5"  TextColor="{StaticResource Dark}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="7" xct:ShadowEffect.Opacity="0.3"/>
-
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="-7">
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             FontFamily="RobotoBold"
-                                             Text="Chat"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             Command="{Binding LoginCommand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                        <material:MaterialButton ButtonType="Elevated"
-                                             Elevation="2, 4"
-                                             HorizontalOptions="End"
-                                             VerticalOptions="Start"
-                                             FontSize="Small"
-                                             CornerRadius="20"
-                                             BorderColor="White"
-                                             BorderWidth="2"
-                                             FontFamily="RobotoBold"
-                                             Text="Tambah"
-                                             Command="{Binding AddRequestComand}"
-                                             BackgroundColor="{StaticResource Accent}"/>
-                                    </StackLayout>
-
-                                </StackLayout>
-                            </Grid>
-                        </material:MaterialCard>
-                    </StackLayout>
-                    
-                </ScrollView>
-                <!--CONTENT-->
+                                </material:MaterialCard>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <!--/CONTENT-->
             </StackLayout>
         </Grid>
 
