@@ -19,8 +19,16 @@
 	  <None Remove="Resources\Fonts\RobotoLight.ttf" />
 	  <None Remove="Resources\Fonts\RobotoRegular.ttf" />
 	  <None Remove="Resources\Images\Avatar\alfred_molina.png" />
+	  <None Remove="Resources\Images\Avatar\benedict_cumberbatch.jpg" />
+	  <None Remove="Resources\Images\Avatar\tom_holland.jpg" />
+	  <None Remove="Resources\Images\Avatar\zendaya.jpg" />
+	  <None Remove="Resources\Images\ayam_bakar_tanpa_nasi.jpg" />
+	  <None Remove="Resources\Images\ayam_goreng_kentang.jpg" />
+	  <None Remove="Resources\Images\falafel_food.jpg" />
 	  <None Remove="Resources\Images\login_avatar.png" />
+	  <None Remove="Resources\Images\misro.jpg" />
 	  <None Remove="Resources\Images\nasi_ayam_sample.jpg" />
+	  <None Remove="Resources\Images\roti_holland.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -31,8 +39,16 @@
 	  <EmbeddedResource Include="Resources\Fonts\RobotoLight.ttf" />
 	  <EmbeddedResource Include="Resources\Fonts\RobotoRegular.ttf" />
 	  <EmbeddedResource Include="Resources\Images\Avatar\alfred_molina.png" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\benedict_cumberbatch.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\tom_holland.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\zendaya.jpg" />
+	  <EmbeddedResource Include="Resources\Images\ayam_bakar_tanpa_nasi.jpg" />
+	  <EmbeddedResource Include="Resources\Images\ayam_goreng_kentang.jpg" />
+	  <EmbeddedResource Include="Resources\Images\falafel_food.jpg" />
 	  <EmbeddedResource Include="Resources\Images\login_avatar.png" />
+	  <EmbeddedResource Include="Resources\Images\misro.jpg" />
 	  <EmbeddedResource Include="Resources\Images\nasi_ayam_sample.jpg" />
+	  <EmbeddedResource Include="Resources\Images\roti_holland.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
