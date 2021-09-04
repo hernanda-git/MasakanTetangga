@@ -1,4 +1,5 @@
-﻿using MasakanTetangga.Models;
+﻿using MasakanTetangga.Helpers;
+using MasakanTetangga.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,6 +24,7 @@ namespace MasakanTetangga.ViewModels
 
         private Food _FoodEntity;
         public Food FoodEntity { get => _FoodEntity; set { _FoodEntity = value; OnPropertyChanged(); } }
+        public List<Food> PendingCart { get; set; }
 
         private int _CartCounter;
         public int CartCounter
@@ -34,29 +36,32 @@ namespace MasakanTetangga.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        private bool _CartCountVisibility;
         public bool CartCountVisibility
         {
             get => CartCounter > 0;
             set
             {
-                _CartCountVisibility = value;
                 OnPropertyChanged();
             }
         }
 
-        public ICommand AddRequestComand { get; }
+        public ICommand AddRequestComand { get => new Command((e) => { AddRequest((Food)e); }); }
 
         #endregion
 
         public HomeViewModel()
         {
-            CartCounter = 0;
-            AddRequestComand = new Command(AddRequest);
+            //initialize components
+            SetInitialize();
 
             //dynamically binding food observable collection
             FoodGeneration();
+        }
+
+        private void SetInitialize()
+        {
+            CartCounter = 0;
+            PendingCart = new List<Food>();
         }
 
         public void FoodGeneration()
@@ -74,6 +79,14 @@ namespace MasakanTetangga.ViewModels
             ObservableFood = new ObservableCollection<Food>(foods);
         }
 
-        private void AddRequest() => CartCounter++;
+        public void AddRequest(Food food)
+        {
+            if(food != null)
+            {
+                CartCounter++;
+                PendingCart.Add(food);
+                XFDialog.SnackBar("Berhasil memasukan menu ke keranjang!");
+            }
+        }
     }
 }

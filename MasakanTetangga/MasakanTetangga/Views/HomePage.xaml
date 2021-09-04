@@ -108,7 +108,7 @@
                 <!--/CATEGORIES-->
 
                 <!--CONTENT-->
-                <CollectionView VerticalScrollBarVisibility="Never" Margin="0,0,0,-20" ItemsSource="{Binding ObservableFood}" SelectedItem="{Binding FoodEntity}">
+                <CollectionView x:Name="ListData" VerticalScrollBarVisibility="Never" Margin="0,0,0,-20" ItemsSource="{Binding ObservableFood}" SelectedItem="{Binding FoodEntity}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Spacing="-6" Padding="0,10,0,0">
@@ -139,7 +139,9 @@
                                                                          BorderWidth="2" Command="{Binding LoginCommand}" BackgroundColor="{StaticResource Accent}"/>
                                                 <material:MaterialButton ButtonType="Elevated" Elevation="2, 4" HorizontalOptions="End" VerticalOptions="Start" 
                                                                          FontSize="Small" CornerRadius="20" BorderColor="White" BorderWidth="2" FontFamily="RobotoBold"
-                                                                         Text="Tambah" Command="{Binding AddRequestComand}" BackgroundColor="{StaticResource Accent}"/>
+                                                                         Text="Tambah" BackgroundColor="{StaticResource Accent}"
+                                                                         Command="{Binding BindingContext.AddRequestComand, Source={x:Reference ListData}}" CommandParameter="{Binding}"/>
+                                                                         
                                             </StackLayout>
 
                                         </StackLayout>
