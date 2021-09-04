@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\FA_5_Brands_Regular_400.otf" />
+	  <None Remove="Resources\Fonts\FA_5_Free_Regular_400.otf" />
+	  <None Remove="Resources\Fonts\FA_5_Free_Solid_900.otf" />
+	  <None Remove="Resources\Fonts\RobotoBold.ttf" />
+	  <None Remove="Resources\Fonts\RobotoLight.ttf" />
+	  <None Remove="Resources\Fonts\RobotoRegular.ttf" />
+	  <None Remove="Resources\Images\Avatar\alfred_molina.png" />
+	  <None Remove="Resources\Images\login_avatar.png" />
+	  <None Remove="Resources\Images\nasi_ayam_sample.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Fonts\FA_5_Brands_Regular_400.otf" />
+	  <EmbeddedResource Include="Resources\Fonts\FA_5_Free_Regular_400.otf" />
+	  <EmbeddedResource Include="Resources\Fonts\FA_5_Free_Solid_900.otf" />
+	  <EmbeddedResource Include="Resources\Fonts\RobotoBold.ttf" />
+	  <EmbeddedResource Include="Resources\Fonts\RobotoLight.ttf" />
+	  <EmbeddedResource Include="Resources\Fonts\RobotoRegular.ttf" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\alfred_molina.png" />
+	  <EmbeddedResource Include="Resources\Images\login_avatar.png" />
+	  <EmbeddedResource Include="Resources\Images\nasi_ayam_sample.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
+		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+		<PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+		<PackageReference Include="XF.Material" Version="1.7.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Models\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Login.xaml.cs">
+	    <DependentUpon>Login.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="AppShell.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Views\Login.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>

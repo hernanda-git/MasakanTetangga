@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MasakanTetangga.Views"
+             x:Class="MasakanTetangga.AppShell">
+    
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Accent}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Accent}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar Route="main">
+        <Tab Route="home" Title="Home">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="28"
+                                 Glyph="&#xf015;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+        <Tab Route="forgot" Title="Transaksi">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="28"
+                                 Glyph="&#xf46d;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+        <Tab Route="signup" Title="Menu">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="28"
+                                 Glyph="&#xf562;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+        <Tab Route="signup" Title="Chat">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="28"
+                                 Glyph="&#xf27a;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+        <Tab Route="signup" Title="Profile">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="28"
+                                 Glyph="&#xf007;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+    </TabBar>
+    
+</Shell>

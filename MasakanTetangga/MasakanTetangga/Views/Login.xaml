@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BaseView  xmlns:views="clr-namespace:MasakanTetangga.Views" 
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                 x:Class="MasakanTetangga.Views.Login"
+                 xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+                 xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                 xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+                 xmlns:local="clr-namespace:MasakanTetangga">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+
+            <StackLayout Grid.Row="0" Spacing="0" BackgroundColor="{StaticResource AccentLight}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label Text="Masakan" FontFamily="RobotoRegular" FontSize="40" HorizontalTextAlignment="Center" Margin="0,150,0,0" TextColor="{StaticResource Accent}" />
+                <Label Text="Tetangga" FontFamily="RobotoBold" FontSize="70" HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="0,-10,0,0" TextColor="{StaticResource Accent}" />
+            </StackLayout>
+
+            <pv:PancakeView Grid.Row="0" pv:CornerRadius="45,45,0,0" HeightRequest="450" BackgroundColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,100,0,0" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                    <Frame Grid.Row="0"
+                           Margin="20,10"
+                           Padding="0"
+                           CornerRadius="7">
+                        <material:MaterialTextField Placeholder="USERNAME"                                                
+                                                    TextFontSize="16"
+                                                    TextFontFamily="RobotoRegular"
+                                                    PlaceholderFontFamily="RobotoRegular"
+                                                    IsMaxLengthCounterVisible="False"
+                                                    BackgroundColor="{StaticResource White}"
+                                                    TintColor="{StaticResource Accent}"
+                                                    FloatingPlaceholderColor="{StaticResource Accent}"
+                                                    TextColor="{StaticResource Dark}"
+                                                    ErrorText="{Binding EmailAddressErrorMessage}" 
+                                                    ReturnType="Next"
+                                                    Text="{Binding Username}"
+                                                    InputType="Text"/>
+                    </Frame>
+                    <Frame Grid.Row="1"
+                           Margin="20,10"
+                           Padding="0"
+                           CornerRadius="7">
+                        <material:MaterialTextField Placeholder="PASSWORD"                                                
+                                                    TextFontSize="16"
+                                                    TextFontFamily="RobotoRegular"
+                                                    PlaceholderFontFamily="RobotoRegular"
+                                                    IsMaxLengthCounterVisible="False"
+                                                    BackgroundColor="{StaticResource White}"
+                                                    TintColor="{StaticResource Accent}"
+                                                    FloatingPlaceholderColor="{StaticResource Accent}"
+                                                    TextColor="{StaticResource Dark}"
+                                                    ErrorText="{Binding EmailAddressErrorMessage}" 
+                                                    ReturnType="Next"
+                                                    Text="{Binding Password}"
+                                                    InputType="Password"/>
+                    </Frame>
+                    <Frame Grid.Row="2" Margin="20,30,20,0" Padding="-6" CornerRadius="7">
+                        <material:MaterialButton ButtonType="Elevated"
+                                             Elevation="2, 4"
+                                             HeightRequest="60"
+                                             AllCaps="True"
+                                             FontFamily="RobotoRegular"
+                                             FontAttributes="Bold"
+                                             Text="LOGIN"
+                                             HorizontalOptions="FillAndExpand"                                             
+                                             Command="{Binding LoginCommand}"
+                                             BackgroundColor="{StaticResource Accent}"/>
+                    </Frame>
+                    <Label Grid.Row="3" 
+                           Text="Tidak punya akun? Daftar disini" 
+                           Margin="20,15" 
+                           HorizontalOptions="Center" 
+                           FontSize="Medium" 
+                           FontFamily="RobotoRegular"
+                           TextColor="{StaticResource Warn}" 
+                           xct:ShadowEffect.Color="{StaticResource Dark}" 
+                           xct:ShadowEffect.OffsetX="0" 
+                           xct:ShadowEffect.OffsetY="7" 
+                           xct:ShadowEffect.Opacity=".8"
+                           xct:TouchEffect.PressedScale="1.03">
+
+                    </Label>
+
+                </Grid>
+            </pv:PancakeView>
+
+            <StackLayout Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,-5,0,0"
+                         HeightRequest="150" 
+                         WidthRequest="150"
+                         BackgroundColor="{StaticResource Primary}">
+                <StackLayout.Clip>
+                    <EllipseGeometry RadiusX="75" RadiusY="75" Center="75,75"/>
+                </StackLayout.Clip>
+                <Image Source="{local:ImageResource MasakanTetangga.Resources.Images.login_avatar.png}">
+                    <Image.Clip>
+                        <EllipseGeometry RadiusX="65" RadiusY="65" Center="75,75"/>
+                    </Image.Clip>
+                </Image>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</views:BaseView>
