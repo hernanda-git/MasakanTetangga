@@ -39,7 +39,7 @@
                                  Size="28"
                                  Glyph="&#xf46d;" />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:ListTransaction}"/>
         </Tab>
         <Tab Route="signup" Title="Menu">
             <Tab.Icon>

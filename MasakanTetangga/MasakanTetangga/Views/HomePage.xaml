@@ -10,6 +10,7 @@
                  BackgroundColor="{StaticResource Primary}">
     <ContentPage.Content>
         <Grid RowDefinitions="*">
+            <!--BACKGROUND SHAPE-->
             <StackLayout Grid.Row="0" Opacity="0.3" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="1000" Margin="-150" HeightRequest="10000" Spacing="100" Rotation="-45">
                 <Image>
                     <Image.Source>
@@ -108,11 +109,14 @@
                 <!--/CATEGORIES-->
 
                 <!--CONTENT-->
-                <CollectionView x:Name="ListData" VerticalScrollBarVisibility="Never" Margin="0,0,0,-20" ItemsSource="{Binding ObservableFood}" SelectedItem="{Binding FoodEntity}">
+                <CollectionView x:Name="ListData" VerticalScrollBarVisibility="Never" 
+                                Margin="0,0,0,-20" 
+                                ItemsSource="{Binding ObservableFood}" 
+                                SelectedItem="{Binding FoodEntity}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Spacing="-6" Padding="0,10,0,0">
-                                <material:MaterialCard HeightRequest="100" CornerRadius="20" Margin="0,0,0,0" BackgroundColor="{StaticResource White70}">
+                                <material:MaterialCard HeightRequest="100" CornerRadius="20" Margin="0,0,0,0" BackgroundColor="{StaticResource White99}">
                                     <Grid ColumnDefinitions="0.37*,0.73*" ColumnSpacing="0" Padding="-21" Margin="0">
                                         <!--IMAGE-->
                                         <Frame Grid.Column="0" CornerRadius="20" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" WidthRequest="500">

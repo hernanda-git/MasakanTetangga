@@ -10,15 +10,16 @@
             <Color x:Key="AccentLight">#FFDDCC</Color>
             <Color x:Key="Warn">#FFD074</Color>
             <Color x:Key="Dark">#3D0707</Color>
+            <Color x:Key="Black">#000</Color>
             <Color x:Key="White">#fff</Color>
             <Color x:Key="White70">#70FFFFFF</Color>
+            <Color x:Key="White80">#80FFFFFF</Color>
+            <Color x:Key="White90">#90FFFFFF</Color>
+            <Color x:Key="White99">#99FFFFFF</Color>
             <Color x:Key="TextGrey">#696969</Color>
             <Color x:Key="Green">#0B9919</Color>
 
             <local:ImageSourceConverter x:Key="ImageSourceConverter" />
         </ResourceDictionary>
-
-            <ResourceDictionary>
-            </ResourceDictionary>
     </Application.Resources>
 </Application>
