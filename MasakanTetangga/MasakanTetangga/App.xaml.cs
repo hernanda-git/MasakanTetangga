@@ -10,7 +10,7 @@ namespace MasakanTetangga
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
 
-            MainPage = new Login();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

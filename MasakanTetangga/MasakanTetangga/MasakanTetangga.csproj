@@ -20,6 +20,12 @@
 	  <None Remove="Resources\Fonts\RobotoRegular.ttf" />
 	  <None Remove="Resources\Images\Avatar\alfred_molina.png" />
 	  <None Remove="Resources\Images\Avatar\benedict_cumberbatch.jpg" />
+	  <None Remove="Resources\Images\Avatar\benedict_wong.jpg" />
+	  <None Remove="Resources\Images\Avatar\jason_mamoa.jpg" />
+	  <None Remove="Resources\Images\Avatar\marisa_tomei.jpg" />
+	  <None Remove="Resources\Images\Avatar\michael_jordan.jpg" />
+	  <None Remove="Resources\Images\Avatar\robert_downey_jr.jpg" />
+	  <None Remove="Resources\Images\Avatar\Synyster_Gates.jpg" />
 	  <None Remove="Resources\Images\Avatar\tom_holland.jpg" />
 	  <None Remove="Resources\Images\Avatar\zendaya.jpg" />
 	  <None Remove="Resources\Images\ayam_bakar_tanpa_nasi.jpg" />
@@ -40,6 +46,12 @@
 	  <EmbeddedResource Include="Resources\Fonts\RobotoRegular.ttf" />
 	  <EmbeddedResource Include="Resources\Images\Avatar\alfred_molina.png" />
 	  <EmbeddedResource Include="Resources\Images\Avatar\benedict_cumberbatch.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\benedict_wong.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\jason_mamoa.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\marisa_tomei.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\michael_jordan.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\robert_downey_jr.jpg" />
+	  <EmbeddedResource Include="Resources\Images\Avatar\Synyster_Gates.jpg" />
 	  <EmbeddedResource Include="Resources\Images\Avatar\tom_holland.jpg" />
 	  <EmbeddedResource Include="Resources\Images\Avatar\zendaya.jpg" />
 	  <EmbeddedResource Include="Resources\Images\ayam_bakar_tanpa_nasi.jpg" />
@@ -61,6 +73,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ListChat.xaml.cs">
+	    <DependentUpon>ListChat.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ListMenu.xaml.cs">
+	    <DependentUpon>ListMenu.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Profile.xaml.cs">
+	    <DependentUpon>Profile.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Login.xaml.cs">
 	    <DependentUpon>Login.xaml</DependentUpon>
 	  </Compile>

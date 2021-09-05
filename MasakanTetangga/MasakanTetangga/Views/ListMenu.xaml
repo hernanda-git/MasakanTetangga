@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BaseView xmlns:views="clr-namespace:MasakanTetangga.Views" xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+                x:Class="MasakanTetangga.Views.ListMenu"
+                xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+                Shell.NavBarIsVisible="False"
+                BackgroundColor="{StaticResource Primary}">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <StackLayout Grid.Row="0" Opacity="0.3" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="1000" Margin="-120,-150,-300,0" HeightRequest="10000" Spacing="120" Rotation="-45">
+                <!--BACKGROUND SHAPE-->
+                <Image>
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="300"
+                                 Glyph="&#xf562;" />
+                    </Image.Source>
+                </Image>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource AccentLight}"
+                                 Size="300"
+                                 Glyph="&#xf562;" />
+                    </Image.Source>
+                </Image>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="20,40,20,20" >
+                <!--TITLE-->
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="0" RowDefinitions="Auto" Margin="0,0,0,10">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Masakan Saya" FontFamily="RobotoBold" FontSize="33" TextColor="{StaticResource White}" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="10"/>
+                    <Image HorizontalOptions="EndAndExpand" Margin="0,0,20,5" VerticalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource White}"
+                                 Size="21"
+                                 Glyph="&#xf0b0;"  />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <!--/TITLE-->
+
+                <!--MENU REPEATER-->
+                <ScrollView>
+                    <FlexLayout Direction="Row" JustifyContent="Start" Wrap="Wrap" AlignItems="Start" HorizontalOptions="FillAndExpand">
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                        <material:MaterialCard CornerRadius="20" BackgroundColor="{StaticResource AccentLight}" FlexLayout.Basis="50%" Margin="10">
+                            <Grid RowDefinitions="*,*">
+                                <StackLayout Grid.Row="0" VerticalOptions="Start" HeightRequest="102" Margin="-20" HorizontalOptions="FillAndExpand">
+                                    <Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding ImageURL, Converter={StaticResource ImageSourceConverter}}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand" HeightRequest="50" Margin="-20" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White80}">
+                                    <Label Text="Ayam Bakar (Tanpa Nasi)" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Accent}" HorizontalOptions="CenterAndExpand" Margin="0,3.4,0,0"/>
+                                    <Label Text="Rp. 35.000" FontFamily="RobotoBold" FontSize="14" TextColor="{StaticResource Black}" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </material:MaterialCard>
+                    </FlexLayout>
+                </ScrollView>
+
+                <!--/MENU REPEATER-->
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" HorizontalOptions="End" VerticalOptions="End" Padding="15" Margin="40" BackgroundColor="{StaticResource Accent}" xct:TouchEffect.PressedScale="1.1" xct:TouchEffect.PressedRotation="45">
+                <Image HeightRequest="35" WidthRequest="35">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource White}"
+                                 Size="23"
+                                 Glyph="&#xf067;" />
+                    </Image.Source>
+                </Image>
+                <StackLayout.Clip>
+                    <EllipseGeometry RadiusX="30" RadiusY="30" Center="33,33"/>
+                </StackLayout.Clip>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</views:BaseView>

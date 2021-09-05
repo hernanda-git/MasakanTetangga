@@ -43,7 +43,7 @@
                 <!--/TITLE-->
 
                 <!--BALANCE CARD-->
-                <material:MaterialCard HeightRequest="120" CornerRadius="20" Margin="0,20,0,0" BackgroundColor="{StaticResource White90}">
+                <material:MaterialCard CornerRadius="20" Margin="0,20,0,0" BackgroundColor="{StaticResource White90}">
                     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10">
                             <Image>
@@ -70,7 +70,7 @@
                 
                 
                 <!--LIST TRANSACTION-->
-                <ScrollView VerticalScrollBarVisibility="Never" Margin="0,20,0,-20">
+                <ScrollView Margin="0,20,0,-20">
                     <StackLayout Spacing="-7">
                         <Grid ColumnDefinitions="*,Auto,*">
                             <BoxView Grid.Column="0" VerticalOptions="Center"
