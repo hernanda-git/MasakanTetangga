@@ -64,6 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
 		<PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
 		<PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
@@ -73,6 +74,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Popups\OrderSuccess.xaml.cs">
+	    <DependentUpon>OrderSuccess.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\ListChat.xaml.cs">
 	    <DependentUpon>ListChat.xaml</DependentUpon>
 	  </Compile>
@@ -89,6 +93,9 @@
 
 	<ItemGroup>
 	  <EmbeddedResource Update="AppShell.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Popups\CartPopup.xaml">
 	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Views\HomePage.xaml">

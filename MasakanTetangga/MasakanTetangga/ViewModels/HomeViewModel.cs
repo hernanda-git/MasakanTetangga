@@ -1,5 +1,6 @@
 ﻿using MasakanTetangga.Helpers;
 using MasakanTetangga.Models;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,11 +47,13 @@ namespace MasakanTetangga.ViewModels
         }
 
         public ICommand AddRequestComand { get => new Command((e) => { AddRequest((Food)e); }); }
-
+        public ICommand CartCommand { get; }
         #endregion
 
         public HomeViewModel()
         {
+            CartCommand = new Command(Cart);
+
             //initialize components
             SetInitialize();
 
@@ -87,6 +90,11 @@ namespace MasakanTetangga.ViewModels
                 PendingCart.Add(food);
                 XFDialog.SnackBar("Berhasil memasukan menu ke keranjang!");
             }
+        }
+
+        private void Cart()
+        {
+            Application.Current.MainPage.Navigation.PushPopupAsync(new Popups.CartPopup());
         }
     }
 }

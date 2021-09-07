@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    x:Class="MasakanTetangga.Popups.OrderSuccess">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <Frame BackgroundColor="{StaticResource White}" WidthRequest="320" CornerRadius="20" VerticalOptions="Center" HorizontalOptions="Center">
+        <StackLayout>
+            
+            <StackLayout Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="15" Margin="20" BackgroundColor="{StaticResource Green}">
+                <Image HeightRequest="50" WidthRequest="50">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid"
+                                 Color="{StaticResource White}"
+                                 Size="23"
+                                 Glyph="&#xf00c;" />
+                    </Image.Source>
+                </Image>
+                <StackLayout.Clip>
+                    <EllipseGeometry RadiusX="40" RadiusY="40" Center="40,40"/>
+                </StackLayout.Clip>
+            </StackLayout>
+            
+            <Label Text="Pesanan Berhasil Diproses!" HorizontalOptions="CenterAndExpand" FontSize="Large" FontFamily="RobotoBold" TextColor="{StaticResource Black}"/>
+            <Label Text="Silahkan menunggu" FontSize="Medium" HorizontalOptions="CenterAndExpand" FontFamily="RobotoRegular" TextColor="{StaticResource Black}"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

@@ -17,11 +17,14 @@ namespace MasakanTetangga.Droid
 
             base.OnCreate(savedInstanceState);
 
+            //libraries
+            Rg.Plugins.Popup.Popup.Init(this);
+            XF.Material.Droid.Material.Init(this, savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             //libraries
-            XF.Material.Droid.Material.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
 
             LoadApplication(new App());
@@ -31,6 +34,18 @@ namespace MasakanTetangga.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+                // Do something if there are some pages in the `PopupStack`
+            }
+            else
+            {
+                // Do something if there are not any pages in the `PopupStack`
+            }
         }
     }
 }

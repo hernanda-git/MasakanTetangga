@@ -22,6 +22,8 @@ namespace MasakanTetangga.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Rg.Plugins.Popup.Popup.Init();
+
             global::Xamarin.Forms.Forms.Init();
             XF.Material.iOS.Material.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();

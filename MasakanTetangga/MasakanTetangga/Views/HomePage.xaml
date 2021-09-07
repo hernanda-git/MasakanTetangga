@@ -35,7 +35,7 @@
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="0" RowDefinitions="Auto">
                     <Label Grid.Row="0" Grid.Column="0" Text="Mau Makan Apa?" FontFamily="RobotoBold" FontSize="33" TextColor="{StaticResource White}" xct:ShadowEffect.Color="{StaticResource Dark}" xct:ShadowEffect.OffsetY="10"/>
                     <StackLayout Spacing="20" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
-                        <Grid VerticalOptions="Center" Margin="0,-15" xct:TouchEffect.PressedScale="1.05">
+                        <Grid VerticalOptions="Center" Margin="0,-15" xct:TouchEffect.Command="{Binding CartCommand}" xct:TouchEffect.PressedScale="1.1">
                             <Image>
                                 <Image.Source >
                                     <FontImageSource FontFamily="FASolid"
@@ -47,7 +47,7 @@
                             <StackLayout Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20,-23,0" IsVisible="{Binding CartCountVisibility}"
                                          HeightRequest="40" 
                                          WidthRequest="40"
-                                         BackgroundColor="{StaticResource Accent}">
+                                         BackgroundColor="{StaticResource Accent}" xct:TouchEffect.Command="{Binding CartCommand}">
                                 <StackLayout.Clip>
                                     <EllipseGeometry RadiusX="10" RadiusY="10" Center="20,20"/>
                                 </StackLayout.Clip>
@@ -143,7 +143,7 @@
                                                                          BorderWidth="2" Command="{Binding LoginCommand}" BackgroundColor="{StaticResource Accent}"/>
                                                 <material:MaterialButton ButtonType="Elevated" Elevation="2, 4" HorizontalOptions="End" VerticalOptions="Start" 
                                                                          FontSize="Small" CornerRadius="20" BorderColor="White" BorderWidth="2" FontFamily="RobotoBold"
-                                                                         Text="Tambah" BackgroundColor="{StaticResource Accent}"
+                                                                         Text="Tambah" BackgroundColor="{StaticResource Accent}" AllCaps="False"
                                                                          Command="{Binding BindingContext.AddRequestComand, Source={x:Reference ListData}}" CommandParameter="{Binding}"/>
                                                                          
                                             </StackLayout>
